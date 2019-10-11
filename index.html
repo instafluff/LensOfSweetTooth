@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Lens of Sweet Twoof - Halloween Candy Recognizer</title>
+    <script src="web/comfy.min.js"></script>
+  </head>
+  <body>
+    <img id="candyphoto" height="300px" src="" />
+    <h1 id="candyprediction"></h1>
+    <script>
+    var url = "[Prediction URL]";
+    var predictionKey = "[PredictionKey]";
+    var channel = "[YourTwitchChannelName]";
+
+    function seeThisCandy( imgUrl ) {
+      fetch( url, {
+        method: 'POST',
+        headers: {
+          "Prediction-Key": predictionKey,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          url: imgUrl
+        })
+      }).then( r => r.json() )
+      .then( r => {
+        console.log( r );
+        document.querySelector( "#candyphoto" ).setAttribute( "src", imgUrl );
+        document.querySelector( "#candyprediction" ).innerText = `${r.predictions[ 0 ].tagName} (${r.predictions[ 0 ].probability})`;
+      } );
+    }
+
+    ComfyJS.onCommand = ( user, command, message, flags, extra ) => {
+      console.log( user, command, message );
+      if( command === "sweettwoof" ||
+          command === "st" ) {
+        // TODO: Check if the message if a Url
+        seeThisCandy( message );
+      }
+    };
+    ComfyJS.Init( channel );
+    </script>
+  </body>
+</html>

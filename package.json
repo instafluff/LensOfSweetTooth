@@ -1,0 +1,30 @@
+{
+  "name": "lensofsweettwoof",
+  "version": "1.0.0",
+  "description": "Halloween Candy Recognizer using Microsoft Azure's Custom Vision AI!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/instafluff/LensOfSweetTwoof.git"
+  },
+  "keywords": [
+    "Instafluff",
+    "Azure",
+    "Candy",
+    "Halloween",
+    "AI"
+  ],
+  "author": "Instafluff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/instafluff/LensOfSweetTwoof/issues"
+  },
+  "homepage": "https://github.com/instafluff/LensOfSweetTwoof#readme",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "webwebweb": "^1.1.5"
+  }
+}
